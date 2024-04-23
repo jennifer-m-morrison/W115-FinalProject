@@ -1,0 +1,173 @@
+/*  Student Name: Jennifer Morrison
+    Date: April 16, 2024
+    Class: Web115.0004
+    File Name: menu.css */
+
+/*********** SITE FONT COLORS *************/
+
+:root {
+    --dkgreen: #003300;
+    --white: #ffffff;
+    --ltgrey: #F2F7F2;
+    --honeydew: #DFF8EB;
+
+}
+
+/************ CSS RESET STYLES ************/
+
+/* Box sizing to include padding and margin */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margins */
+body,
+h1,
+h2,
+h3,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/************ GENERAL STYLES ************/
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: var(--ltgrey);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+button {
+    background: var(--dkgreen);
+    color: var(--white);
+}
+
+header h1 {
+    font-family: "PT Serif", serif;
+    text-align: center;
+    padding: 0;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    word-spacing: 10px;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+.header-title {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    background: var(--dkgreen);
+        color: var(--white);
+}
+
+.header-title img {
+    align-self: center;
+}
+
+.project-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    padding: 1em;
+    background-color: var(--honeydew);
+    color: var(--dkgreen);
+    border-bottom: 3px solid var(--dkgreen);
+}
+
+.form-container {
+    margin: 1em auto;
+    width: 85%;
+}
+
+.form-container h3 {
+    margin-bottom: 0.7em;
+}
+
+.personal-info {
+    display: grid;
+    width: 80%;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5em;
+}
+
+.name-info,
+.other-info {
+    margin-bottom: 1em;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1em;
+
+}
+
+.name-info label,
+.other-info label {
+    display: block;
+    /* margin-bottom: 0.7em; */
+    font-size: 1.2rem;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-bottom: 1em;
+
+}
+
+table,
+th,
+td {
+    border: 1px solid;
+}
+
+th,
+td {
+    height: 2.2rem;
+    padding: 1rem;
+}
+
+tbody th {
+    text-align-last: left;
+}
+
+thead {
+    text-align: center;
+}
+
+#menu-info input {
+    display: block;
+    height: 2rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+button {
+    padding: 0.7em 1rem;
+    font-size: 1rem;
+    border-radius: 15px;
+    margin-right: 1em;
+}
+
+.test {
+    font-size: 16px;
+
+}
+
+.output {
+    width: 90%;
+    margin: 0 auto;
+}
