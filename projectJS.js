@@ -1,13 +1,12 @@
 // Name: Jennifer Morrison
 // Class: Web115.0004
-// Date: April 16, 2024
+// Date: April 25, 2024
 // File Name: script.js
 
 // Declare variables for page
 const menuForm = document.getElementById("menuForm");
 const subButton = document.getElementById("btnSubmit");
 const resetButton = document.getElementById("btnReset");
-
 
 // Add event listener to form submit button
 menuForm.addEventListener("submit", createPlannerWindow);
@@ -16,8 +15,6 @@ menuForm.addEventListener("submit", createPlannerWindow);
 resetButton.addEventListener("click", () => {
     menuForm.reset();
 });
-
-
 
 // Define createPlannerWindow function
 function createPlannerWindow(e) {
@@ -28,7 +25,6 @@ function createPlannerWindow(e) {
     const lastName = document.getElementById("lastName");
     const email = document.getElementById("email");
     const goal = document.getElementById("goal");
-    
 
     let weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     let menuInputs = document.getElementsByClassName("menuItem");
@@ -43,7 +39,7 @@ function createPlannerWindow(e) {
 
     // Create table to display menu inputs
     let plannerTable = document.createElement("table");
-    
+
     // Create head section of table
     let tHead = plannerTable.createTHead();
     tHead.innerHTML = "<tr><th></th><th>Breakfast</th><th>Snack</th><th>Lunch</th><th>Snack</th><th>Dinner</th></tr>"
@@ -61,15 +57,18 @@ function createPlannerWindow(e) {
         }
     }
 
-    let myMenuPage = `
-<html><head><title>My Planned Menu</title>
+let myMenuPage = `
+<html>
+<head>
+<title>My Planned Menu</title>
 <link rel="stylesheet" href="menu.css">
-
 </head>
 <body class="output">
 <h1>Weekly Meal Plan for ${firstName.value} ${lastName.value}</h1>
+<h3>Goal for this week: ${goal.value}</h3>
 ${plannerTable.outerHTML}
 <button type="button" id="btnPrint">Print Menu</button>
+<a id="dlink"></a>
 <button type="button" id="btnDownload">Download Menu</button>
 </body></html>`
 
@@ -79,14 +78,27 @@ ${plannerTable.outerHTML}
     menuWindow.document.write(myMenuPage);
 
     const printButton = menuWindow.document.getElementById("btnPrint");
+    const downloadButton = menuWindow.document.getElementById("btnDownload");
+    const dlContent = menuWindow.document.body.outerHTML;
+    const dLink = menuWindow.document.getElementById("dlink");
+
+    dLink.download = "myMenu.html";
+    dLink.href = 'data:text/html,' + encodeURI(myMenuPage);
 
     // Add event listener to form print button to print page
     printButton.addEventListener("click", () => {
-        window.print();
+        menuWindow.print();
     });
 
-}
 
+    // Add event listener to download button to download file
+    downloadButton.addEventListener("click", () => {
+        dLink.click();
+    });
+
+
+}
+// 
 // body {
 // font-family: Arial;
 // font-size: 16px;
@@ -117,4 +129,5 @@ ${plannerTable.outerHTML}
 //     text-align: center;
 // }
 // </style>
-// plannerTable.classList.add("output");
+
+//data-download="output"
