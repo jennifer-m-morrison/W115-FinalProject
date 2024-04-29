@@ -46,6 +46,8 @@ function createPlannerWindow(e) {
     // Create table body section
     let tBody = plannerTable.createTBody();
 
+    // For loop will iterate over weekdays array and menuInputValues array to build table rows and cells from user input 
+
     for (let row = 0; row < menuInputValues.length; row += 5) {
         let plannerRow = tBody.insertRow();
         let headerColCell = plannerRow.insertCell();
@@ -59,19 +61,19 @@ function createPlannerWindow(e) {
 
     //Create myMenuPage variable to build content for new window
     let myMenuPage = `
-<html>
-<head>
-<title>My Planned Menu</title>
-<link rel="stylesheet" href="menu.css">
-</head>
-<body class="output">
-<h1>Weekly Meal Plan for ${firstName.value} ${lastName.value}</h1>
-<h3>Goal for this week: ${goal.value}</h3>
-${plannerTable.outerHTML}
-<button type="button" id="btnPrint">Print Menu</button>
-<a id="dlink"></a>
-<button type="button" id="btnDownload">Download Menu</button>
-</body></html>`
+    <html>
+    <head>
+    <title>My Planned Menu</title>
+    <link rel="stylesheet" href="menu.css">
+    </head>
+    <body class="output">
+    <h1>Weekly Meal Plan for ${firstName.value} ${lastName.value}</h1>
+    <h3>Goal for this week: ${goal.value}</h3>
+    ${plannerTable.outerHTML}
+    <button type="button" id="btnPrint">Print Menu</button>
+    <a id="dlink"></a>
+    <button type="button" id="btnDownload">Download Menu</button>
+    </body></html>`
 
     // Open new window to display Menu Planner
     let menuWindow = window.open("", "plannedMenu", "width=1150,height=800,top=100,left=100");
@@ -93,7 +95,9 @@ ${plannerTable.outerHTML}
     downloadButton.addEventListener("click", () => {
         const dlContent = menuWindow.document.body.outerHTML;
 
-        // Add styles to download content - I tried many different ways with inline styles vs. linking to style sheet - this is the only way I could get the formatting to work
+        // Add styles to download content - I tried many different ways
+        // with inline styles vs. linking to menu.css stylesheet - 
+        //this is the only way I could get the formatting to work
         let styledDlContent = `
         <html>
         <head>
