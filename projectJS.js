@@ -1,6 +1,6 @@
 // Name: Jennifer Morrison
 // Class: Web115.0004
-// Date: April 25, 2024
+// Date: April 29, 2024
 // File Name: script.js
 
 // Declare variables for page
@@ -57,7 +57,8 @@ function createPlannerWindow(e) {
         }
     }
 
-let myMenuPage = `
+    //Create myMenuPage variable to build content for new window
+    let myMenuPage = `
 <html>
 <head>
 <title>My Planned Menu</title>
@@ -73,61 +74,70 @@ ${plannerTable.outerHTML}
 </body></html>`
 
     // Open new window to display Menu Planner
-    let menuWindow = window.open("", "plannedMenu", "width=1100,height=800,top=100,left=100");
+    let menuWindow = window.open("", "plannedMenu", "width=1150,height=800,top=100,left=100");
 
+    // Write myMenuPage content to new window
     menuWindow.document.write(myMenuPage);
 
+    // Declare variables for new window for print and download functionality
     const printButton = menuWindow.document.getElementById("btnPrint");
     const downloadButton = menuWindow.document.getElementById("btnDownload");
-    const dlContent = menuWindow.document.body.outerHTML;
-    const dLink = menuWindow.document.getElementById("dlink");
 
-    dLink.download = "myMenu.html";
-    dLink.href = 'data:text/html,' + encodeURI(myMenuPage);
 
     // Add event listener to form print button to print page
     printButton.addEventListener("click", () => {
         menuWindow.print();
     });
 
-
     // Add event listener to download button to download file
     downloadButton.addEventListener("click", () => {
+        const dlContent = menuWindow.document.body.outerHTML;
+
+        // Add styles to download content - I tried many different ways with inline styles vs. linking to style sheet - this is the only way I could get the formatting to work
+        let styledDlContent = `
+        <html>
+        <head>
+        <title>My Planned Menu</title>
+        <style>
+        table {
+        border-collapse: collapse;
+        max-width: 90%;
+        margin-bottom: 1em;
+        }
+
+        table,
+        th,
+        td {
+        border: 1px solid;
+        }
+
+        th,
+        td {
+        padding: 1rem;
+        }
+
+        tr {
+        display: grid;
+        grid-template-columns: repeat(6, 175px);
+        overflow-wrap: break-word;
+        }
+
+        button {
+        display: none;
+        }
+        </style>
+        </head>
+        <body class="output">
+        ${dlContent}
+        </body>
+        </html>
+        `
+        const dLink = menuWindow.document.getElementById("dlink");
+        // Add properties to anchor tag for download
+        dLink.download = "myMenu.html";
+        dLink.href = 'data:text/html,' + encodeURI(styledDlContent);
         dLink.click();
     });
 
 
 }
-// 
-// body {
-// font-family: Arial;
-// font-size: 16px;
-// }
-// 
-// h1{
-// font-size: 32px;
-// }
-// thead tr, tbody tr {
-//     display: grid;
-//     grid-template-columns: repeat(6, 1fr);
-//     border-collapse: collapse;
-// }
-// table,
-// th,
-// td {
-//     border: 1px solid;
-// }
-// th,
-// td {
-//     height: 2.2rem;
-//     padding: 1rem;
-// }
-// tbody th {
-//     text-align-last: left;
-// }
-// thead {
-//     text-align: center;
-// }
-// </style>
-
-//data-download="output"

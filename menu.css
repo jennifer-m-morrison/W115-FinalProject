@@ -1,5 +1,5 @@
 /*  Student Name: Jennifer Morrison
-    Date: April 16, 2024
+    Date: April 29, 2024
     Class: Web115.0004
     File Name: menu.css */
 
@@ -65,6 +65,7 @@ h3 {
     margin-bottom: 0.7em;
 }
 
+/* Header Styles */
 .header-title {
     display: flex;
     justify-content: center;
@@ -88,11 +89,11 @@ h3 {
     border-bottom: 3px solid var(--dkgreen);
 }
 
+/* Form Styles */
 .form-container {
     margin: 1em auto;
     width: 85%;
 }
-
 
 .personal-info {
     display: grid;
@@ -118,12 +119,11 @@ h3 {
     font-size: 1.2rem;
 }
 
-
+/* Menu table styles */
 table {
     border-collapse: collapse;
     max-width: 90%;
     margin-bottom: 1em;
-
 }
 
 table,
@@ -141,7 +141,6 @@ tr {
     display: grid;
     grid-template-columns: repeat(6, 175px);
     overflow-wrap: break-word;
-
 }
 
 tbody th {
@@ -166,11 +165,12 @@ button {
     margin-right: 1em;
 }
 
-.test {
+/* .test {
     font-size: 16px;
 
-}
+} */
 
+/* Styles for body section of new window */
 .output {
     width: 90%;
     margin: 0 auto;
@@ -184,6 +184,5 @@ button {
 
     .output {
         margin: 0;
-        /* resize: landscape; */
     }
 }

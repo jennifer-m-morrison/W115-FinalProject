@@ -1,6 +1,6 @@
 <!--    Student Name: Jennifer Morrison
         Class: Web-115.0004
-        Date: April 24, 2024
+        Date: April 29, 2024
         File Name: finalProject.html  -->
 
 <!DOCTYPE html>
@@ -10,7 +10,8 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>Web-115 Final Project</title>
+    <title>WEB-115 Final Project</title>
+    <!--  Link to Google Fonts-->
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
     <link rel="preconnect"
@@ -18,11 +19,13 @@
           crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel="stylesheet">
+    <!--  Link to Stylesheet-->
     <link rel="stylesheet"
           href="menu.css">
 </head>
 
 <body>
+    <!-- Header includes professional banner with student information, logo, and Build Your Meal Plan Title-->
     <header>
         <div class="header-title">
             <img src="images/menuLogo.png"
@@ -38,9 +41,11 @@
             </div>
         </div>
     </header>
+    <!-- Main section includes form to collect user personal information and data about meals for each day of the week -->
     <main>
         <form class="form-container"
               id="menuForm">
+            <!-- Personal Information-->
             <h3>Please complete personal information:</h3>
             <section class="personal-info">
                 <div class="name-info">
@@ -66,6 +71,7 @@
                            required>
                 </div>
             </section>
+            <!-- Meal Information-->
             <section>
                 <h3>Please complete meal details for week:</h3>
                 <table id="menu-info">
@@ -243,6 +249,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <!-- Form submit and reset buttons -->
                 <button type="submit"
                         id="btnSubmit">Submit Form</button>
                 <button type="reset"
@@ -250,7 +257,7 @@
             </section>
         </form>
     </main>
-
+    <!-- Javascript link-->
     <script src="projectJS.js"></script>
 </body>
 
